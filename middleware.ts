@@ -7,6 +7,11 @@ export const config = {
 export default function middleware(request: Request) {
   const url = new URL(request.url);
 
+  // check if the url is Next specific and rewrite it
+  if (url.pathname.startsWith("/_next")) {
+    return rewrite(url.pathname);
+  }
+  
   // extract the subdomain from the request
   const subdomain = url.hostname.split(".")[0];
   // prepend the subdomain to the request url
