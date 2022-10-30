@@ -1,3 +1,9 @@
+import { rewrite } from "@vercel/edge";
+
+export const config = {
+  // Only run the middleware on the home route
+};
+
 export default function middleware(request: Request) {
   const url = new URL(request.url);
 
@@ -8,5 +14,5 @@ export default function middleware(request: Request) {
 
   console.log(url.pathname);
   // return the modified request
-  return Response.redirect(url);
+  return rewrite(url);
 }
