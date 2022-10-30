@@ -5,6 +5,8 @@ export default function middleware(request: Request) {
   const subdomain = url.hostname.split(".")[0];
   // prepend the subdomain to the request url
   url.pathname = `/website/${subdomain}${url.pathname}`;
+
+  console.log(url.pathname);
   // return the modified request
-  return new Request(url.toString(), request);
+  return Response.redirect(url);
 }
