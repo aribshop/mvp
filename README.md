@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Arib.shop
+a wesbite for creating websites, duh!
 
-## Getting Started
+a solution for people to create e-commerce business 
+1. e-commerce
+2. food websites
+3. appoitement reservation 
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+with one click, the full website will be ready and served on subdomain `example.arib.shop`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+the innovation behind Arib.shop is all orders are backed by chain-production system
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## chain production 
+a order goes into multiple phases before it get resolved 
+1. putting order
+2. stuff accept the order => move it to next line
+    1. acceptance is by simple "accept" button, scanning the QR code from the client..
+    2. demandes have an expiration date 
+3. depending on the production line the order goes into multiple phases
+5. when the order is on the last phase, the client recieves a (one-time-use) link for submitting a review
+6. the manager can track down the review to see all people responsible for the order
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+[ ] Landing page to video
 
-## Deploy on Vercel
+[ ] One-time-use review
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[ ] mobile application 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[ ] statistic widget for phone
+
+[ ] access management 
+
