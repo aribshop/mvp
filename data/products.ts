@@ -10,7 +10,7 @@ export default [
     price: 99.99,
     image: "https://laknabil.me/nabil.png",
     website: "1",
-    template: ProductTemplates.WithSuggestions,
+    template: ProductTemplates.popup,
   },
   {
     id: "2",

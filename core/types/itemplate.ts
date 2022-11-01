@@ -6,6 +6,8 @@ export enum Templates {
 export enum ProductTemplates {
   Landing = "1",
   WithSuggestions = "2",
+  popup = "3",
+  list = "4",
 }
 
 export default interface ITemplate {
