@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
-import { getWebsite } from "../../../../helper/fetching";
+import { getWebsite } from "../../../../../helper/fetching";
 
 import { redirect } from "next/navigation";
-import { Templates } from "../../../../core/types/itemplate";
+import { Templates } from "../../../../../core/types/itemplate";
 
 interface NewProps {
   params: { subname: string };

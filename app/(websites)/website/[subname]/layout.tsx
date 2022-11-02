@@ -1,8 +1,8 @@
 import { FunctionComponent, PropsWithChildren, use } from "react";
 
 import Head from "next/head";
-import data from "../../../data";
-import Theme from "../../../themes";
+import data from "../../../../data";
+import Theme from "../../../../themes";
 interface SubnameLayoutProps {
   params: { subname: string };
   children: React.ReactNode;

@@ -4,8 +4,8 @@ import {
   getProduct,
   getWebsite,
   isOnePageProduct,
-} from "../../../../../helper/fetching";
-import ThemeProduct from "../../../../../themes/themeProduct";
+} from "../../../../../../helper/fetching";
+import ThemeProduct from "../../../../../../themes/themeProduct";
 
 interface ProductProps {
   params: { slug: string; subname: string };

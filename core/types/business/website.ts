@@ -7,4 +7,7 @@ export default interface Website {
   description: string;
   user: string;
   template: Templates;
+
+
+  
 }

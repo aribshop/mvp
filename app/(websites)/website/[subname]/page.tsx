@@ -1,6 +1,6 @@
 import { FunctionComponent, use } from "react";
-import data from "../../../data";
-import Theme from "../../../themes";
+import data from "../../../../data";
+import Theme from "../../../../themes";
 
 interface HomeProps {
   params: { subname: string };

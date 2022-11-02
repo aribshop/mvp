@@ -1,5 +1,5 @@
-import data from "../../../../data";
-import { getWebsite } from "../../../../helper/fetching";
+import data from "../../../../../data";
+import { getWebsite } from "../../../../../helper/fetching";
 
 interface BucketProps {
   params: { subname: string };
