@@ -13,7 +13,7 @@ const Home: FunctionComponent<HomeProps> = (props) => {
 
   const website = websites.find((w) => w.subname === subname);
 
-  return <Theme website={website} />;
+  return <Theme isLayout={false} website={website} />;
 };
 
 export default Home;

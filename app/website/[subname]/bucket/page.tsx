@@ -15,13 +15,13 @@ const Bucket = async (props: BucketProps) => {
 
   if (wishes.length === 0) {
     return (
-      <div className="max-w-md mx-auto  bg-neutral-100 rounded-lg shadow-md p-8">
+      <div className="max-w-md mx-auto absolute top-0 z-50 left-0 right-0  bg-neutral-100 rounded-lg shadow-md p-8">
         <h1 className="text-3xl text-center">Bucket is empty</h1>
       </div>
     );
   } else {
     return (
-      <div className="max-w-md mx-auto  bg-neutral-100 rounded-lg shadow-md p-8">
+      <div className="max-w-md mx-auto absolute top-0 z-50 left-0 right-0  bg-neutral-100 rounded-lg shadow-md p-8">
         <h1 className="text-3xl text-center">Bucket</h1>
         <ul>
           {wishes.map((wish, index) => (

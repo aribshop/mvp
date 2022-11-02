@@ -1,6 +1,9 @@
+// todo don't hard code the Enum values
+
 export enum Templates {
   Ecommerce = "1",
   Dentist = "2",
+  Food = "3",
 }
 
 export enum ProductTemplates {

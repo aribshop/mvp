@@ -5,6 +5,7 @@ import {
   getWebsite,
   isOnePageProduct,
 } from "../../../../../helper/fetching";
+import ThemeProduct from "../../../../../themes/themeProduct";
 
 interface ProductProps {
   params: { slug: string; subname: string };
@@ -16,14 +17,10 @@ const Product = async (props: ProductProps) => {
 
   const product = (await getProduct(website.id, props.params.slug))!;
 
+  // todo the role of the website to decide if it is a one page product or not
   if (isOnePageProduct(product)) {
-    return (
-      <div className="max-w-md mx-auto  bg-neutral-100 rounded-lg shadow-md p-8">
-        <h1 className="text-3xl text-center">{product.name}</h1>
-        <p className="text-zinc-800 text-xl mt-4">{product.description}</p>
-      </div>
-    );
-  } else redirect("..");
+    return <ThemeProduct website={website} product={product} />;
+  } else return redirect("..");
 };
 
 export default Product;

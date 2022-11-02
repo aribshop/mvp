@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
-import Product from "../../../core/types/business/product";
-import ITemplate from "../../../core/types/itemplate";
+import Product from "../../core/types/business/product";
+import ITemplate from "../../core/types/itemplate";
 import Image from "next/image";
 interface DentistTemplateProps extends ITemplate {
   products: Product[];
@@ -31,9 +31,12 @@ const DentistTemplate: FunctionComponent<DentistTemplateProps> = (props) => {
                     height={128}
                   />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">
-                  {product.name}
-                </h3>
+                {/* todo make the website dynamic */}
+                <a href={`/website/ebay/product/${product.id}`}>
+                  <h3 className="text-xl font-bold text-gray-800">
+                    {product.name}
+                  </h3>
+                </a>
                 <p className="text-gray-600">${product.price}</p>
               </div>
             ))}
