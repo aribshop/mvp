@@ -1,8 +1,24 @@
 "use client";
 
 import { FunctionComponent, useState } from "react";
+import Axios from "axios";
 
 interface NewWebsiteProps {}
+
+const http = Axios.create({
+  baseURL: "http://localhost:3000/api/website/",
+});
+
+type NewWebsite = {
+  title: string;
+  subname: string;
+  type: string;
+};
+
+async function createWebsite(website: NewWebsite) {
+  const response = await http.post("/add", website);
+  return response.data;
+}
 
 const NewWebsite: FunctionComponent<NewWebsiteProps> = () => {
   const [step, setStep] = useState(0);
@@ -11,14 +27,18 @@ const NewWebsite: FunctionComponent<NewWebsiteProps> = () => {
   const [subname, setSubname] = useState("");
   const [type, setType] = useState("");
 
-  function create() {
-    if (subname.includes(" ")) return;
+  const [loading, setLoading] = useState(false);
 
-    
+  async function create() {
+    if (subname.includes(" ")) return;
+    console.log({ title, subname, type });
+    setLoading(true);
+    const website = await createWebsite({ title, subname, type });
+    setLoading(false);
   }
   return (
-    <div>
-      <h1>Create new Website</h1>
+    <div className="max-w-md mx-auto">
+      <h1 className="text-xl font-medium text-center py-8">Create new Website</h1>
 
       <div>
         <label htmlFor="title">Title</label>

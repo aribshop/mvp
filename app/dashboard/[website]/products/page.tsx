@@ -1,14 +1,23 @@
-"use client";
-
 import Image from "next/image";
 import { FunctionComponent, use } from "react";
-import data from "../../../data";
+import Product from "../../../../core/types/business/product";
+import data from "../../../../data";
+import AddProduct from "./components/addProduct";
 
-interface ProductsProps {}
+interface ProductsProps {
+  params: {
+    website: string;
+  };
+}
 
-const Products: FunctionComponent<ProductsProps> = () => {
-  const products = use(data.products("1"));
+const Products = async (props: ProductsProps) => {
+  const { products } = (await (
+    await fetch(
+      `http://127.0.0.1:3000/api/website/${props.params.website}/product/get`
+    )
+  ).json()) as { products: Product[] };
 
+  console.log(products);
   return (
     <div className="grid grid-cols-3 gap-4">
       {products.map((product) => (
@@ -26,11 +35,11 @@ const Products: FunctionComponent<ProductsProps> = () => {
           </h1>
 
           <p className="text-neutral-700 ">
-            {" "}
             {product.description.slice(0, 30)}
           </p>
         </div>
       ))}
+      <AddProduct websiteId={props.params.website} />
     </div>
   );
 };
