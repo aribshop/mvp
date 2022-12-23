@@ -24,7 +24,7 @@ export default async function middleware(request: Request) {
 
   if (cookie) {
     const cookies = cookie.split(";");
-    const cookieTemplate = cookies.find((c) =>
+    const cookieTemplate = cookies.filter(Boolean).find((c) =>
       c.trim().startsWith("template=")
     );
     if (cookieTemplate) {
@@ -33,6 +33,7 @@ export default async function middleware(request: Request) {
   }
   console.log(template);
 
+  // todo use a combinaiton of 
   if (template == "default") {
     console.time("redis");
     const redis = new Redis({
