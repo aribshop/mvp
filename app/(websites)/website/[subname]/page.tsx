@@ -2,6 +2,9 @@ import { FunctionComponent, use } from "react";
 import data from "../../../../data";
 import Theme from "../../../../themes";
 
+
+export const revalidate = 6000
+
 interface HomeProps {
   params: { subname: string };
 }
