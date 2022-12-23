@@ -51,7 +51,7 @@ export default async function middleware(request: Request) {
     isTemplateFromCookie = false;
   }
 
-  const CookieHeaders: { [key: string]: string } = isTemplateFromCookie
+  const CookieHeaders: { [key: string]: string } = !isTemplateFromCookie
     ? {
         "set-cookie": `template=${template}; path=/; max-age=31536000; HttpOnly`,
       }
