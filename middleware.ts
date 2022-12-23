@@ -22,18 +22,21 @@ export default async function middleware(request: Request) {
     return rewrite(url);
   }
 
+  let isTemplateFromCookie = false;
   if (cookie) {
     const cookies = cookie.split(";");
-    const cookieTemplate = cookies.filter(Boolean).find((c) =>
-      c.trim().startsWith("template=")
-    );
+    const cookieTemplate = cookies
+      .filter(Boolean)
+      .find((c) => c.trim().startsWith("template="));
     if (cookieTemplate) {
       template = cookieTemplate.split("=")[1];
+      isTemplateFromCookie = true;
     }
   }
+
   console.log(template);
 
-  // todo use a combinaiton of 
+  // todo use a combinaiton of
   if (template == "default") {
     console.time("redis");
     const redis = new Redis({
@@ -44,13 +47,21 @@ export default async function middleware(request: Request) {
     template =
       ((await redis.hget("templates", subdomain)) as string) ?? "default";
     console.timeEnd("redis");
+
+    isTemplateFromCookie = false;
   }
+
+  const CookieHeaders: { [key: string]: string } = isTemplateFromCookie
+    ? {
+        "set-cookie": `template=${template}; path=/; max-age=31536000; HttpOnly`,
+      }
+    : {};
 
   if (subdomain == "localhost") {
     url.searchParams.append("t", template);
     return rewrite(url, {
       headers: {
-        "set-cookie": `template=${template}; path=/; max-age=31536000; HttpOnly`,
+        ...CookieHeaders,
       },
     });
   }
@@ -64,7 +75,7 @@ export default async function middleware(request: Request) {
   // return the modified request
   return rewrite(url, {
     headers: {
-      "set-cookie": `template=${template}; path=/; max-age=31536000; HttpOnly`,
+      ...CookieHeaders,
     },
   });
 }
