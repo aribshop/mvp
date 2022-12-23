@@ -57,9 +57,10 @@ export default async function middleware(request: Request) {
 
   // prepend the subdomain to the request url
   // todo add search params
-  url.pathname = `/website/${subdomain}${url.pathname}?&t=${template}`;
+  url.pathname = `/website/${subdomain}${url.pathname}`;
+  url.searchParams.append("t", template);
+  console.log(url);
 
-  console.log(url.pathname);
   // return the modified request
   return rewrite(url, {
     headers: {
