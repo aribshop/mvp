@@ -8,8 +8,13 @@ interface SubnameLayoutProps {
   children: React.ReactNode;
 }
 
+export const revalidate = "force-cache";
+export const dynamicParams = true 
+
 const SubnameLayout = ({ children, params }: SubnameLayoutProps) => {
   const { subname } = params;
+
+  console.log("Server Side Rendering ...");
 
   const websites = use(data.websites());
 
