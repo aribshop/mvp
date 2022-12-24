@@ -3,8 +3,6 @@ import data from "../../../../data";
 import Theme from "../../../../themes";
 
 
-export const revalidate = "force-cache";
-export const dynamicParams = true 
 
 
 interface HomeProps {

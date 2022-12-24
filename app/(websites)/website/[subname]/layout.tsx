@@ -7,9 +7,12 @@ interface SubnameLayoutProps {
   params: { subname: string };
   children: React.ReactNode;
 }
+export const revalidate = 6000;
 
-export const revalidate = "force-cache";
-export const dynamicParams = true 
+export const dynamic = "force-static";
+
+export const fetchCache = "only-cache";
+
 
 const SubnameLayout = ({ children, params }: SubnameLayoutProps) => {
   const { subname } = params;
@@ -26,10 +29,16 @@ const SubnameLayout = ({ children, params }: SubnameLayoutProps) => {
         <title>{params.subname}</title>
       </Head>
       <div>
-        <Theme isLayout={true} website={website} />;{children}
+        <Theme isLayout={true} website={website} />{children}
       </div>
     </>
   );
 };
+
+
+export async function generateStaticParams() {
+
+  return []
+}
 
 export default SubnameLayout;
