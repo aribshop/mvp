@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { Redis } from "@upstash/redis";
 
 export const config = {
-  // Only run the middleware on the home route
+  regions: ["fra1"],
 };
 
 function getSubdomain(url: URL) {
