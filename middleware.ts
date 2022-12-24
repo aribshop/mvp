@@ -3,8 +3,7 @@ import { NextResponse } from "next/server";
 
 import { Redis } from "@upstash/redis";
 
-export const config = {
-};
+export const config = {};
 
 function getSubdomain(url: URL) {
   const subdomain = url.hostname.split(".")[0];
@@ -48,9 +47,15 @@ function dropMiddleware(request: Request) {
     return NextResponse.next();
   }
 
-  if (url.pathname.startsWith("/")) {
-    return false;
+  if (url.pathname.startsWith("/api")) {
+    return true;
   }
+
+  if (url.pathname.startsWith("/favicon.ico")) {
+    return true;
+  }
+
+  return false;
 }
 
 export default async function middleware(request: Request) {
