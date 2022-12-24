@@ -1,5 +1,5 @@
 const API = (location: string) => {
-  return (process.env.ARIB_API + location);
+  return process.env.ARIB_API + location;
 };
 
 export async function getSite(subname: string) {
@@ -33,9 +33,9 @@ export async function getFirstCustomProduct(subname: string) {
 
 export async function getProduct(subname: string, productID: string) {
   const response = await fetch(API(`/site/product/${subname}/${productID}`));
-  
+
   const data = await response.json();
-  console.log(data,API(`/site/product/${subname}/${productID}`));
+  console.log("ARIB_API", API(`/site/product/${subname}/${productID}`));
 
   return data.product as {
     id: string;
