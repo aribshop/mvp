@@ -11,12 +11,13 @@ interface HomeProps {
 
 const Home: FunctionComponent<HomeProps> = (props) => {
   const { subname } = props.params;
+  console.log("page",props);
 
   const websites = use(data.websites());
 
   const website = websites.find((w) => w.subname === subname);
 
-  return <Theme isLayout={false} website={website} />;
+  return <div>Not Found</div>
 };
 
 export default Home;

@@ -5,6 +5,7 @@ import data from "../../../../data";
 import Theme from "../../../../themes";
 interface SubnameLayoutProps {
   params: { subname: string };
+  searchParams?: { t: string };
   children: React.ReactNode;
 }
 export const revalidate = 6000;
@@ -13,11 +14,9 @@ export const dynamic = "force-static";
 
 export const fetchCache = "only-cache";
 
-
-const SubnameLayout = ({ children, params }: SubnameLayoutProps) => {
+const SubnameLayout = (props: SubnameLayoutProps) => {
+  const { params, searchParams, children } = props;
   const { subname } = params;
-
-  console.log("Server Side Rendering ...");
 
   const websites = use(data.websites());
 
@@ -28,17 +27,13 @@ const SubnameLayout = ({ children, params }: SubnameLayoutProps) => {
       <Head key={"hello world"}>
         <title>{params.subname}</title>
       </Head>
-      <div>
-        <Theme isLayout={true} website={website} />{children}
-      </div>
+      <div>{children}</div>
     </>
   );
 };
 
-
 export async function generateStaticParams() {
-
-  return []
+  return [];
 }
 
 export default SubnameLayout;
