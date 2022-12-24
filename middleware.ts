@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 import { Redis } from "@upstash/redis";
 
 export const config = {
-  regions: ["fra1"],
 };
 
 function getSubdomain(url: URL) {
@@ -76,7 +75,7 @@ export default async function middleware(request: Request) {
   }
 
   if (template == "default") {
-    return NextResponse.redirect("https://www.arib.shop");
+    return NextResponse.redirect("https://www.arib.shop?s=" + subdomain);
   }
 
   const CookieHeaders: any = !cookieTemplate
