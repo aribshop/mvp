@@ -48,6 +48,7 @@ function dropMiddleware(request: Request) {
   }
 
   if (url.pathname.startsWith("/api")) {
+    // todo add subdomain as a searchParam!
     return true;
   }
 
