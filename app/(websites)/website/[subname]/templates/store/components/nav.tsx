@@ -1,8 +1,12 @@
+import { Href } from "../../utils";
+import BucketButton from "./bucketButton";
+
 type Props = {
   siteName: string;
 };
 
 export default function Navigation(props: Props) {
+  const h = Href("subname", "store");
   return (
     <nav className="p-4 bg-white flex items-center space-x-8">
       <div className="bg-black px-4 py-1 text-white rounded-lg font-medium ">
@@ -26,6 +30,12 @@ export default function Navigation(props: Props) {
           </a>
         </li>
       </ul>
+
+      <div className="flex-1" />
+
+      <a href={h("bucket")}>
+        <BucketButton />
+      </a>
     </nav>
   );
 }

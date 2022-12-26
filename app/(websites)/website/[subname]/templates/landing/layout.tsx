@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
+import { getSite } from "../utils/backdata";
 import ByProductButton from "./components/byProductButton";
-import { getSite } from "./utils/backdata";
 
 type Props = {
   params: {
@@ -11,7 +11,7 @@ type Props = {
 };
 export default async function Landing(props: Props) {
   const site = await getSite(props.params.subname);
-  const { template } = site;
+  const template = site.template as any;
 
   return (
     <div className="w-full min-h-screen relative">

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { use } from "react";
-import { Href } from "../utils";
+import { Href } from "../../utils";
 import { getFirstCustomProduct } from "../utils/backdata";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 };
 
 export default function ByProductButton({ subname }: Props) {
-  const h = Href(subname);
+  const h = Href(subname, "landing");
 
   const product = use(getFirstCustomProduct(subname));
 
