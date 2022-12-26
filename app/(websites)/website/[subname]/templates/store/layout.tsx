@@ -14,7 +14,7 @@ export default async function StoreLayout(props: Props) {
   
   return (
     <div className="w-full min-h-screen relative ">
-      <Navigation siteName={site.name} />
+      <Navigation siteName={site.name}  subname={props.params.subname}/>
 
       
       {props.children}

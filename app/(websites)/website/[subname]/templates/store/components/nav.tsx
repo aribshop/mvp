@@ -3,15 +3,18 @@ import BucketButton from "./bucketButton";
 
 type Props = {
   siteName: string;
+  subname: string;
 };
 
+// todo use React Lazy to load the bucket button
+
 export default function Navigation(props: Props) {
-  const h = Href("subname", "store");
+  const h = Href(props.subname, "store");
   return (
     <nav className="p-4 bg-white flex items-center space-x-8">
-      <div className="bg-black px-4 py-1 text-white rounded-lg font-medium ">
+      <a href={h("")} className="bg-black px-4 py-1 text-white rounded-lg font-medium ">
         {props.siteName}
-      </div>
+      </a>
 
       <ul className="flex items-center space-x-1">
         <li>
